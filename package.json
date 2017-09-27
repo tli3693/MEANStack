@@ -1,0 +1,25 @@
+{
+  "name": "mytasklist",
+  "version": "1.0.0",
+  "description": "Learning MEAN stack using simple task manager",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tli3693/MEANStack.git"
+  },
+  "author": "Troy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tli3693/MEANStack/issues"
+  },
+  "homepage": "https://github.com/tli3693/MEANStack#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.15.5",
+    "mongojs": "^2.4.1"
+  }
+}
