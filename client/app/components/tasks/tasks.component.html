@@ -1,7 +1,7 @@
 <form class="well" (submit)="addTask($event)">
     <div class="form-group">
-        <input type="text" [(ngModel)]="title" name="title" class="col-md-9" placeholder="Add New Task...">
-     
+        <input type="text" [(ngModel)]="title" name="title" class="col-md-8" placeholder="Add New Task...">
+    
         <label class="col-md-2">
             Is complete?
             <select [(ngModel)]="isDone" name="isDone" >
@@ -9,14 +9,17 @@
                 <option value="true">True</option>
             </select>
         </label>
+        <div class="col-md-2 text-right"><input type="submit" (submit)="addTask($event)"></div>
     </div>  
-   
+    <br/>
+    <div>{{this.message}}</div>
 </form>
+
 <div > </div>
 <div class="task-list">
     <!-->Table headers<!-->
     <div class="col-md-1">
-        Complete?
+        Done?
     </div>
     <div class="col-md-3">
         Task Id
@@ -31,7 +34,7 @@
 
     <div *ngFor="let task of tasks">
         <div class="col-md-1">
-            <input type="checkbox" [checked]="task.isDone" >
+            <input type="checkbox" [checked]="task.isDone" id="isDone_{{task._id}}">
         </div>
         <div class="col-md-3">
             {{task._id}}    
@@ -41,7 +44,7 @@
         </div> 
         <div class="col-md-4">
             <input type="button" (click)="deleteTask(task._id)" value="Delete" class="btn btn-danger">  
-            <input type="button" (click)="updateStatus(task)" value="Update" class="btn btn-primary">    
+            <input type="button" (click)="updateStatus(task)" value="Done" class="btn btn-primary">    
         </div>
         <br><br>
     </div>

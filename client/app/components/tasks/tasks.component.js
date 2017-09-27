@@ -13,7 +13,6 @@ var task_service_1 = require('../../services/task.service');
 var TasksComponent = (function () {
     function TasksComponent(taskService) {
         this.taskService = taskService;
-        this.message = "TESTING MESSAGE 12312313123123";
         console.log(this.message);
         this.getAllTasks();
     }
@@ -37,6 +36,7 @@ var TasksComponent = (function () {
             _this.tasks.push(task);
             _this.title = '';
         });
+        this.message = "Successfully added task: '" + newTask.title + "'.";
     };
     TasksComponent.prototype.deleteTask = function (id) {
         var tasks = this.tasks;
@@ -49,6 +49,7 @@ var TasksComponent = (function () {
                 }
             }
         });
+        this.message = "Successfully deleted task id: " + id + ".";
     };
     TasksComponent.prototype.updateStatus = function (task) {
         var _task = {
@@ -59,6 +60,7 @@ var TasksComponent = (function () {
         this.taskService.updateStatus(_task).subscribe(function (data) {
             task.isDone = !task.isDone;
         });
+        this.message = "Successfully updated task: '" + task.title + "'.";
     };
     TasksComponent = __decorate([
         core_1.Component({

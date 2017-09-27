@@ -15,7 +15,6 @@ export class TasksComponent {
     message: string;
     
     constructor(private taskService:TaskService){
-        this.message = "TESTING MESSAGE 12312313123123";
         console.log(this.message)
         this.getAllTasks();
     }
@@ -39,6 +38,7 @@ export class TasksComponent {
                 this.tasks.push(task);
                 this.title = '';
             });
+        this.message = "Successfully added task: '" + newTask.title + "'.";
     }
     
     deleteTask(id){
@@ -53,6 +53,7 @@ export class TasksComponent {
                 }
             }
         });
+        this.message = "Successfully deleted task id: " + id + ".";
     }
     
     updateStatus(task){
@@ -65,5 +66,6 @@ export class TasksComponent {
         this.taskService.updateStatus(_task).subscribe(data => {
             task.isDone = !task.isDone;
         });
+        this.message = "Successfully updated task: '" + task.title + "'.";
     }
 }
