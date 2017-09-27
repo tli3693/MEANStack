@@ -1,19 +1,47 @@
 <form class="well" (submit)="addTask($event)">
-      <div class="form-group">
-        <input type="text" [(ngModel)]="title" name="title" class="form-control" placeholder="Add Task...">    
-      </div>  
+    <div class="form-group">
+        <input type="text" [(ngModel)]="title" name="title" class="col-md-9" placeholder="Add New Task...">
+     
+        <label class="col-md-2">
+            Is complete?
+            <select [(ngModel)]="isDone" name="isDone" >
+                <option value="false" selected="true">False</option>
+                <option value="true">True</option>
+            </select>
+        </label>
+    </div>  
+   
 </form>
-
+<div > </div>
 <div class="task-list">
+    <!-->Table headers<!-->
+    <div class="col-md-1">
+        Complete?
+    </div>
+    <div class="col-md-3">
+        Task Id
+    </div> 
+    <div class="col-md-4">
+        Task
+    </div> 
+    <div class="col-md-4">
+        Action 
+    </div>
+    <br/><br/>
+
     <div *ngFor="let task of tasks">
         <div class="col-md-1">
-            <input type="checkbox" [checked]="task.isDone" (click)="updateStatus(task)">
+            <input type="checkbox" [checked]="task.isDone" >
         </div>
-        <div class="col-md-7">
+        <div class="col-md-3">
+            {{task._id}}    
+        </div> 
+        <div class="col-md-4">
             {{task.title}}    
         </div> 
         <div class="col-md-4">
-            <input type="button" (click)="deleteTask(task._id)" value="Delete" class="btn btn-danger">    
+            <input type="button" (click)="deleteTask(task._id)" value="Delete" class="btn btn-danger">  
+            <input type="button" (click)="updateStatus(task)" value="Update" class="btn btn-primary">    
         </div>
         <br><br>
     </div>

@@ -12,20 +12,26 @@ var core_1 = require('@angular/core');
 var task_service_1 = require('../../services/task.service');
 var TasksComponent = (function () {
     function TasksComponent(taskService) {
-        var _this = this;
         this.taskService = taskService;
+        this.message = "TESTING MESSAGE 12312313123123";
+        console.log(this.message);
+        this.getAllTasks();
+    }
+    TasksComponent.prototype.getAllTasks = function () {
+        var _this = this;
         this.taskService.getTasks()
             .subscribe(function (tasks) {
             _this.tasks = tasks;
         });
-    }
+    };
     TasksComponent.prototype.addTask = function (event) {
         var _this = this;
         event.preventDefault();
         var newTask = {
             title: this.title,
-            isDone: false
+            isDone: this.isDone
         };
+        console.log("is Done? " + this.isDone);
         this.taskService.addTask(newTask)
             .subscribe(function (task) {
             _this.tasks.push(task);
