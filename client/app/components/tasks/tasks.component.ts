@@ -5,7 +5,7 @@ import {Task} from '../../../Task';
 @Component({
   moduleId: module.id,
   selector: 'tasks',
-  templateUrl: 'tasks.component.html'
+  templateUrl: '../../../../app/components/tasks/tasks.component.html'
 })
 
 export class TasksComponent { 
