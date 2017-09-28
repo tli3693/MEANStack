@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {TaskService} from '../../services/task.service';
-import {Task} from '../../../Task';
+import {Task} from '../../models/Task';
 
 @Component({
   moduleId: module.id,
@@ -15,6 +15,7 @@ export class TasksComponent {
     message: string;
     
     constructor(private taskService:TaskService){
+        var aTask = new Task();
         console.log(this.message)
         this.getAllTasks();
     }
